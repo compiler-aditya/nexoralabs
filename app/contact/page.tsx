@@ -25,19 +25,19 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email",
-    content: "info@nexoralabs.com",
-    link: "mailto:info@nexoralabs.com",
+    content: "adityaisktcs@gmail.com",
+    link: "mailto:adityaisktcs@gmail.com",
   },
   {
     icon: Phone,
     title: "Phone",
-    content: "+1 (555) 123-4567",
-    link: "tel:+15551234567",
+    content: "+91 7509492063",
+    link: "tel:+917509492063",
   },
   {
     icon: MapPin,
     title: "Office",
-    content: "123 Innovation Drive, Tech Valley, CA 94000",
+    content: "Gold City oppo Vistara Township, 222 Singapoore, 1Bypass Road, near Infocity, Indore, Madhya Pradesh 452016",
     link: "#",
   },
 ];
@@ -253,8 +253,9 @@ export default function ContactPage() {
                   <MapPin className="h-16 w-16 text-primary mx-auto mb-4" />
                   <h3 className="text-2xl font-bold mb-2">Visit Our Office</h3>
                   <p className="text-muted-foreground mb-4">
-                    123 Innovation Drive<br />
-                    Tech Valley, CA 94000
+                    Gold City oppo Vistara Township<br />
+                    222 Singapoore, 1Bypass Road, near Infocity<br />
+                    Indore, Madhya Pradesh 452016
                   </p>
                   <p className="text-sm text-muted-foreground">
                     Office Hours: Monday - Friday, 9:00 AM - 6:00 PM PST

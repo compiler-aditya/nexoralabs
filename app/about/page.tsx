@@ -62,9 +62,9 @@ const timeline = [
 
 const team = [
   {
-    name: "Alex Johnson",
+    name: "Aditya Singh",
     role: "CEO & Founder",
-    bio: "Visionary leader with 15+ years of experience in tech innovation.",
+    bio: "Alumnus of IIT Madras with a vision to transform technology innovation.",
   },
   {
     name: "Sarah Chen",
