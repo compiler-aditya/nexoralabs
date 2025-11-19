@@ -16,7 +16,7 @@ const footerLinks = {
     { name: "GitHub", href: "#", icon: Github },
     { name: "Twitter", href: "#", icon: Twitter },
     { name: "LinkedIn", href: "#", icon: Linkedin },
-    { name: "Email", href: "mailto:info@nexoralabs.com", icon: Mail },
+    { name: "Email", href: "mailto:adityaisktcs@gmail.com", icon: Mail },
   ],
 };
 
