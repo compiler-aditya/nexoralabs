@@ -3,11 +3,12 @@
 import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { Logo } from "@/components/logo";
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -50,11 +51,8 @@ export function Header() {
               transition={{ duration: 0.5 }}
               className="flex items-center gap-3"
             >
-              <div className="relative">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-600 to-indigo-600 flex items-center justify-center shadow-lg group-hover:shadow-purple-500/50 transition-all duration-300">
-                  <Sparkles className="w-5 h-5 text-white" />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-xl blur-lg opacity-0 group-hover:opacity-50 transition-opacity duration-300" />
+              <div className="relative group-hover:scale-105 transition-transform duration-300">
+                <Logo size={40} />
               </div>
               <div>
                 <h1 className="text-2xl font-black text-gradient">
