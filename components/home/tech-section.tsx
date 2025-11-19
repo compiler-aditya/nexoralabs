@@ -6,6 +6,7 @@ import { AIIllustration } from "@/components/illustrations/ai-illustration";
 import { CodeIllustration } from "@/components/illustrations/code-illustration";
 import { CloudIllustration } from "@/components/illustrations/cloud-illustration";
 import Image from "next/image";
+import { BackgroundAnimation } from "@/components/animations/background-animation";
 
 const techStack = [
   { name: "React", logo: "https://cdn.simpleicons.org/react/61DAFB" },
@@ -51,6 +52,9 @@ export function TechSection() {
     <section className="py-32 relative overflow-hidden bg-gradient-to-b from-background to-secondary/20">
       {/* Pattern Background */}
       <div className="absolute inset-0 pattern-grid opacity-30" />
+
+      {/* Background Animation */}
+      <BackgroundAnimation type="dots" />
 
       <div className="container mx-auto px-4 relative z-10">
         <motion.div

@@ -5,12 +5,16 @@ import { ArrowRight, Sparkles, Zap, Shield } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { FloatingElements } from "@/components/illustrations/floating-elements";
+import { BackgroundAnimation } from "@/components/animations/background-animation";
 
 export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pattern-dots">
       {/* Animated background with gradients */}
       <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-white to-indigo-50 dark:from-gray-900 dark:via-purple-900/20 dark:to-indigo-900/20" />
+
+      {/* Background Animation */}
+      <BackgroundAnimation type="particles" />
 
       {/* Floating orbs */}
       <motion.div
@@ -65,9 +69,9 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.1 }}
           >
             <span className="text-gradient block">
-              Innovation
+              AI-Powered Solutions
             </span>
-            <span className="text-foreground">Meets Excellence</span>
+            <span className="text-foreground">for Enterprise Intelligence</span>
           </motion.h1>
 
           {/* Subtitle */}
@@ -77,8 +81,7 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            Empowering businesses with cutting-edge AI, cloud solutions, and innovative
-            technology that transforms ideas into reality.
+            We build production-ready AI systems: from intelligent contract analysis with RAG-powered Q&A to custom ML models that automate complex business workflows.
           </motion.p>
 
           {/* CTA Buttons */}
