@@ -167,10 +167,10 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Services Grid */}
+      {/* Services Grid - New Design */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service, index) => {
               const Icon = service.icon;
               return (
@@ -180,50 +180,95 @@ export default function ServicesPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="group"
                 >
-                  <Card className="h-full hover:shadow-lg transition-shadow">
-                    <CardHeader>
-                      <div
-                        className={`w-14 h-14 rounded-lg bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-4`}
-                      >
-                        <Icon className="h-7 w-7 text-white" />
+                  <div className="relative h-full p-6 rounded-2xl bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 border border-gray-200 dark:border-gray-700 hover:border-purple-400 dark:hover:border-purple-600 transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                    {/* Gradient overlay */}
+                    <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
+
+                    {/* Content */}
+                    <div className="relative z-10 flex flex-col h-full">
+                      {/* Icon */}
+                      <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                        <Icon className="h-8 w-8 text-white" />
                       </div>
-                      <CardTitle className="text-2xl">{service.title}</CardTitle>
-                      <CardDescription className="text-base">
+
+                      {/* Title */}
+                      <h3 className="text-xl font-bold mb-3 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                        {service.title}
+                      </h3>
+
+                      {/* Description */}
+                      <p className="text-sm text-muted-foreground mb-4 flex-grow">
                         {service.shortDesc}
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent className="space-y-6">
-                      <div>
-                        <h4 className="font-semibold mb-3">Key Benefits:</h4>
-                        <ul className="space-y-2">
-                          {service.benefits.map((benefit, i) => (
-                            <li key={i} className="text-sm text-muted-foreground flex items-start">
-                              <span className="text-primary mr-2">✓</span>
-                              {benefit}
-                            </li>
-                          ))}
-                        </ul>
+                      </p>
+
+                      {/* Technologies - Minimal */}
+                      <div className="flex flex-wrap gap-1 mt-auto">
+                        {service.technologies.slice(0, 3).map((tech, i) => (
+                          <span
+                            key={i}
+                            className="px-2 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded text-xs font-medium"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                        {service.technologies.length > 3 && (
+                          <span className="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded text-xs font-medium">
+                            +{service.technologies.length - 3}
+                          </span>
+                        )}
                       </div>
-                      <div>
-                        <h4 className="font-semibold mb-3">Technologies:</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {service.technologies.map((tech, i) => (
-                            <span
-                              key={i}
-                              className="px-3 py-1 bg-secondary rounded-full text-xs font-medium"
-                            >
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
+                    </div>
+
+                    {/* Decorative corner */}
+                    <div className="absolute top-4 right-4 w-2 h-2 rounded-full bg-purple-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </div>
                 </motion.div>
               );
             })}
           </div>
+
+          {/* Details Section */}
+          <motion.div
+            className="mt-16 p-8 rounded-3xl bg-gradient-to-br from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 border border-purple-200 dark:border-purple-800"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h3 className="text-2xl font-bold mb-6 text-center">What You Get With Every Service</h3>
+            <div className="grid md:grid-cols-4 gap-6">
+              <div className="text-center">
+                <div className="w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center mx-auto mb-3">
+                  <span className="text-white font-bold">✓</span>
+                </div>
+                <h4 className="font-semibold mb-2">Quality Assurance</h4>
+                <p className="text-sm text-muted-foreground">Comprehensive testing & code reviews</p>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center mx-auto mb-3">
+                  <span className="text-white font-bold">24/7</span>
+                </div>
+                <h4 className="font-semibold mb-2">Support</h4>
+                <p className="text-sm text-muted-foreground">Ongoing maintenance & assistance</p>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 rounded-full bg-indigo-600 flex items-center justify-center mx-auto mb-3">
+                  <span className="text-white font-bold">∞</span>
+                </div>
+                <h4 className="font-semibold mb-2">Scalability</h4>
+                <p className="text-sm text-muted-foreground">Built to grow with your business</p>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center mx-auto mb-3">
+                  <span className="text-white font-bold">⚡</span>
+                </div>
+                <h4 className="font-semibold mb-2">Performance</h4>
+                <p className="text-sm text-muted-foreground">Optimized for speed & efficiency</p>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 

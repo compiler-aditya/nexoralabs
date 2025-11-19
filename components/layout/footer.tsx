@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Github, Twitter, Linkedin, Mail, Sparkles, ArrowRight } from "lucide-react";
+import { Github, Twitter, Linkedin, Mail, ArrowRight } from "lucide-react";
+import { Logo } from "@/components/logo";
 
 const footerLinks = {
   company: [
@@ -31,9 +32,7 @@ export function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-5">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-600 to-indigo-600 flex items-center justify-center shadow-lg">
-                <Sparkles className="w-6 h-6 text-white" />
-              </div>
+              <Logo size={48} />
               <h3 className="text-3xl font-black text-gradient">
                 Nexora Labs
               </h3>
