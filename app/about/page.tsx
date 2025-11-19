@@ -245,26 +245,55 @@ export default function AboutPage() {
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {team.map((member, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <Card className="text-center">
-                  <CardHeader>
-                    <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary to-purple-600 mx-auto mb-4" />
-                    <CardTitle className="text-xl">{member.name}</CardTitle>
-                    <p className="text-sm text-primary font-medium">{member.role}</p>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground">{member.bio}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+            {team.map((member, index) => {
+              const initials = member.name
+                .split(" ")
+                .map((n) => n[0])
+                .join("");
+              const isCEO = member.role.includes("CEO");
+
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                >
+                  <Card className={`text-center hover:shadow-xl transition-all duration-300 ${
+                    isCEO
+                      ? "border-2 border-primary/30 bg-gradient-to-br from-primary/5 to-purple-500/5"
+                      : "hover:border-primary/20"
+                  }`}>
+                    <CardHeader>
+                      {isCEO && (
+                        <div className="absolute top-4 right-4 bg-gradient-to-r from-primary to-purple-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                          Founder
+                        </div>
+                      )}
+                      <div className={`w-24 h-24 rounded-full bg-gradient-to-br ${
+                        isCEO
+                          ? "from-primary via-purple-600 to-indigo-600"
+                          : "from-primary/80 to-purple-600/80"
+                      } mx-auto mb-4 flex items-center justify-center text-white font-bold text-2xl shadow-lg ${
+                        isCEO ? "ring-4 ring-primary/20" : ""
+                      }`}>
+                        {initials}
+                      </div>
+                      <CardTitle className="text-xl font-bold">{member.name}</CardTitle>
+                      <p className={`text-sm font-semibold ${
+                        isCEO ? "text-primary" : "text-primary/80"
+                      }`}>
+                        {member.role}
+                      </p>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{member.bio}</p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>

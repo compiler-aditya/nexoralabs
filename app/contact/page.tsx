@@ -113,17 +113,17 @@ export default function ContactPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                 >
-                  <Card className="text-center hover:shadow-lg transition-shadow">
+                  <Card className="text-center hover:shadow-xl hover:scale-105 transition-all duration-300 border-2 hover:border-primary/20">
                     <CardHeader>
-                      <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                        <Icon className="h-6 w-6 text-primary" />
+                      <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-purple-500/20 flex items-center justify-center mx-auto mb-4 shadow-md">
+                        <Icon className="h-7 w-7 text-primary" />
                       </div>
-                      <CardTitle className="text-lg">{info.title}</CardTitle>
+                      <CardTitle className="text-lg font-bold">{info.title}</CardTitle>
                     </CardHeader>
                     <CardContent>
                       <a
                         href={info.link}
-                        className="text-muted-foreground hover:text-primary transition-colors"
+                        className="text-muted-foreground hover:text-primary transition-colors font-medium text-sm break-words"
                       >
                         {info.content}
                       </a>
@@ -147,10 +147,12 @@ export default function ContactPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-2xl">Send Us a Message</CardTitle>
-                  <CardDescription>
+              <Card className="border-2 hover:border-primary/20 transition-all shadow-lg">
+                <CardHeader className="space-y-3">
+                  <CardTitle className="text-3xl font-bold bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
+                    Send Us a Message
+                  </CardTitle>
+                  <CardDescription className="text-base">
                     Fill out the form below and we'll get back to you as soon as possible.
                   </CardDescription>
                 </CardHeader>
@@ -226,7 +228,12 @@ export default function ContactPage() {
                       </div>
                     )}
 
-                    <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
+                    <Button
+                      type="submit"
+                      size="lg"
+                      className="w-full bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-purple-600/90 shadow-lg hover:shadow-xl transition-all"
+                      disabled={isSubmitting}
+                    >
                       {isSubmitting ? (
                         "Sending..."
                       ) : (
@@ -241,25 +248,39 @@ export default function ContactPage() {
               </Card>
             </motion.div>
 
-            {/* Map Placeholder */}
+            {/* Office Location */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <div className="h-full min-h-[600px] bg-secondary/50 rounded-lg flex items-center justify-center">
-                <div className="text-center p-8">
-                  <MapPin className="h-16 w-16 text-primary mx-auto mb-4" />
-                  <h3 className="text-2xl font-bold mb-2">Visit Our Office</h3>
-                  <p className="text-muted-foreground mb-4">
-                    Gold City oppo Vistara Township<br />
-                    222 Singapoore, 1Bypass Road, near Infocity<br />
-                    Indore, Madhya Pradesh 452016
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    Office Hours: Monday - Friday, 9:00 AM - 6:00 PM PST
-                  </p>
+              <div className="h-full min-h-[600px] bg-gradient-to-br from-primary/5 to-purple-500/5 rounded-2xl flex items-center justify-center border-2 border-primary/10 shadow-lg">
+                <div className="text-center p-8 max-w-md">
+                  <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary/20 to-purple-500/20 flex items-center justify-center mx-auto mb-6 shadow-md">
+                    <MapPin className="h-10 w-10 text-primary" />
+                  </div>
+                  <h3 className="text-3xl font-bold mb-6 bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
+                    Visit Our Office
+                  </h3>
+                  <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 mb-6 border border-primary/10">
+                    <p className="text-muted-foreground leading-relaxed text-sm">
+                      <span className="font-semibold text-foreground block mb-2">Gold City</span>
+                      Opposite Vistara Township<br />
+                      222 Singapoore, 1st Bypass Road<br />
+                      Near Infocity<br />
+                      <span className="font-semibold text-foreground mt-2 inline-block">
+                        Indore, Madhya Pradesh 452016
+                      </span>
+                    </p>
+                  </div>
+                  <div className="bg-primary/10 backdrop-blur-sm rounded-xl p-4 border border-primary/20">
+                    <p className="text-sm font-medium text-foreground mb-1">Office Hours</p>
+                    <p className="text-xs text-muted-foreground">
+                      Monday - Friday<br />
+                      9:00 AM - 6:00 PM IST
+                    </p>
+                  </div>
                 </div>
               </div>
             </motion.div>
