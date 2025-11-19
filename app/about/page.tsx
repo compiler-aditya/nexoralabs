@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Target, Eye, Heart, Users } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { BackgroundAnimation } from "@/components/animations/background-animation";
 
 const values = [
   {
@@ -87,8 +88,9 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-primary/20 to-purple-500/20">
-        <div className="container mx-auto px-4">
+      <section className="relative py-20 bg-gradient-to-r from-primary/20 to-purple-500/20 overflow-hidden">
+        <BackgroundAnimation type="waves" />
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             className="text-center max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}

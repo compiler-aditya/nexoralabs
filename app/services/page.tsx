@@ -15,6 +15,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Accordion, AccordionItem } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { BackgroundAnimation } from "@/components/animations/background-animation";
 
 const services = [
   {
@@ -150,8 +151,9 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-primary/20 to-purple-500/20">
-        <div className="container mx-auto px-4">
+      <section className="relative py-20 bg-gradient-to-r from-primary/20 to-purple-500/20 overflow-hidden">
+        <BackgroundAnimation type="grid" />
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             className="text-center max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
