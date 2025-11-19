@@ -130,20 +130,21 @@ export function TechSection() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.05 }}
-                whileHover={{ scale: 1.2, y: -5 }}
+                whileHover={{ scale: 1.15, y: -5 }}
               >
-                <div className="relative w-16 h-16 md:w-20 md:h-20 flex items-center justify-center">
+                <div className="relative w-16 h-16 md:w-20 md:h-20 flex items-center justify-center p-2 rounded-xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm group-hover:bg-white dark:group-hover:bg-gray-800 transition-all duration-300 group-hover:shadow-lg">
                   <Image
                     src={tech.logo}
                     alt={tech.name}
-                    width={64}
-                    height={64}
-                    className="w-full h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
+                    width={80}
+                    height={80}
+                    unoptimized
+                    className="w-full h-full object-contain transition-all duration-300"
                   />
                 </div>
                 {/* Tooltip */}
-                <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
-                  <span className="text-xs font-medium text-muted-foreground">
+                <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
+                  <span className="text-xs font-semibold text-foreground bg-white dark:bg-gray-800 px-3 py-1 rounded-full shadow-lg border border-border">
                     {tech.name}
                   </span>
                 </div>
