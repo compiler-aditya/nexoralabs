@@ -17,25 +17,32 @@ export function BackgroundAnimation({
   if (type === "particles") {
     return (
       <div className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`}>
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-purple-500/20 dark:bg-purple-400/20 rounded-full"
-            initial={{
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
-            }}
-            animate={{
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
-            }}
-            transition={{
-              duration: 20 + Math.random() * 20,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-          />
-        ))}
+        {[...Array(20)].map((_, i) => {
+          const startX = Math.random() * 100;
+          const startY = Math.random() * 100;
+          const endX = Math.random() * 100;
+          const endY = Math.random() * 100;
+
+          return (
+            <motion.div
+              key={i}
+              className="absolute w-1 h-1 bg-purple-500/20 dark:bg-purple-400/20 rounded-full"
+              style={{
+                left: `${startX}%`,
+                top: `${startY}%`,
+              }}
+              animate={{
+                left: `${endX}%`,
+                top: `${endY}%`,
+              }}
+              transition={{
+                duration: 20 + Math.random() * 20,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+            />
+          );
+        })}
       </div>
     );
   }
