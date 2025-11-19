@@ -86,10 +86,10 @@ export function CTASection() {
             <Button
               asChild
               size="lg"
-              className="group bg-white text-purple-600 hover:bg-gray-100 shadow-2xl hover:shadow-white/20 hover:scale-105 transition-all duration-300 text-lg px-10 py-7 rounded-full font-bold"
+              className="group bg-white text-purple-600 hover:bg-gray-100 shadow-2xl hover:shadow-white/20 hover:scale-105 transition-all duration-300 text-lg px-12 py-8 rounded-2xl font-bold"
             >
               <Link href="/contact">
-                Start Your Project
+                Start Your Journey
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform" />
               </Link>
             </Button>
@@ -97,9 +97,12 @@ export function CTASection() {
               asChild
               size="lg"
               variant="outline"
-              className="border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm hover:border-white transition-all duration-300 text-lg px-10 py-7 rounded-full font-bold"
+              className="border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm hover:border-white transition-all duration-300 text-lg px-12 py-8 rounded-2xl font-bold hover:scale-105"
             >
-              <Link href="/services">Explore Services</Link>
+              <Link href="/services">
+                Explore Services
+                <ArrowRight className="ml-2 h-5 w-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+              </Link>
             </Button>
           </div>
 

@@ -140,7 +140,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="py-20 bg-secondary/30">
+      <section className="py-20 bg-gradient-to-br from-purple-50 via-white to-blue-50 dark:from-gray-900 dark:via-purple-900/10 dark:to-blue-900/10">
         <div className="container mx-auto px-4">
           <motion.div
             className="text-center mb-16"
@@ -149,15 +149,21 @@ export default function AboutPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl font-bold mb-4">Our Values</h2>
+            <h2 className="text-4xl font-bold mb-4">Our Core Values</h2>
             <p className="text-xl text-muted-foreground">
               The principles that guide everything we do
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {values.map((value, index) => {
               const Icon = value.icon;
+              const gradients = [
+                "from-purple-500 to-indigo-500",
+                "from-blue-500 to-cyan-500",
+                "from-pink-500 to-rose-500",
+                "from-violet-500 to-purple-500",
+              ];
               return (
                 <motion.div
                   key={index}
@@ -165,18 +171,17 @@ export default function AboutPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="group"
                 >
-                  <Card className="h-full">
-                    <CardHeader>
-                      <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                        <Icon className="h-6 w-6 text-primary" />
-                      </div>
-                      <CardTitle>{value.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-muted-foreground">{value.description}</p>
-                    </CardContent>
-                  </Card>
+                  <div className="h-full p-6 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-purple-400 dark:hover:border-purple-600 transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                    <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${gradients[index]} flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                      <Icon className="h-8 w-8 text-white" />
+                    </div>
+                    <h3 className="text-xl font-bold mb-3 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                      {value.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{value.description}</p>
+                  </div>
                 </motion.div>
               );
             })}
@@ -185,8 +190,9 @@ export default function AboutPage() {
       </section>
 
       {/* Timeline */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
+      <section className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-50/50 to-transparent dark:via-purple-900/10" />
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 20 }}
@@ -204,23 +210,27 @@ export default function AboutPage() {
             {timeline.map((item, index) => (
               <motion.div
                 key={index}
-                className="flex gap-6 mb-12 last:mb-0"
+                className="flex gap-6 mb-12 last:mb-0 group"
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
                 <div className="flex flex-col items-center">
-                  <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center text-white font-bold shrink-0">
+                  <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-purple-600 to-indigo-600 flex items-center justify-center text-white font-bold text-sm shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300">
                     {item.year}
                   </div>
                   {index < timeline.length - 1 && (
-                    <div className="w-0.5 h-full bg-primary/30 mt-2" />
+                    <div className="w-1 flex-1 bg-gradient-to-b from-purple-600 to-purple-200 dark:to-purple-900 mt-4 rounded-full" />
                   )}
                 </div>
-                <div className="pb-12">
-                  <h3 className="text-2xl font-bold mb-2">{item.title}</h3>
-                  <p className="text-muted-foreground">{item.description}</p>
+                <div className="pb-12 flex-1">
+                  <div className="p-6 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-purple-400 dark:hover:border-purple-600 transition-all duration-300 hover:shadow-xl group-hover:-translate-y-1">
+                    <h3 className="text-2xl font-bold mb-2 text-foreground group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                      {item.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">{item.description}</p>
+                  </div>
                 </div>
               </motion.div>
             ))}

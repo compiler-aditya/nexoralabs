@@ -24,6 +24,26 @@ const techStack = [
   { name: "PyTorch", logo: "https://cdn.simpleicons.org/pytorch/EE4C2C" },
   { name: "GraphQL", logo: "https://cdn.simpleicons.org/graphql/E10098" },
   { name: "Tailwind CSS", logo: "https://cdn.simpleicons.org/tailwindcss/06B6D4" },
+  { name: "Vue.js", logo: "https://cdn.simpleicons.org/vuedotjs/4FC08D" },
+  { name: "Angular", logo: "https://cdn.simpleicons.org/angular/DD0031" },
+  { name: "Django", logo: "https://cdn.simpleicons.org/django/092E20" },
+  { name: "Flask", logo: "https://cdn.simpleicons.org/flask/000000" },
+  { name: "FastAPI", logo: "https://cdn.simpleicons.org/fastapi/009688" },
+  { name: "Spring Boot", logo: "https://cdn.simpleicons.org/springboot/6DB33F" },
+  { name: "Go", logo: "https://cdn.simpleicons.org/go/00ADD8" },
+  { name: "Rust", logo: "https://cdn.simpleicons.org/rust/000000" },
+  { name: "Elasticsearch", logo: "https://cdn.simpleicons.org/elasticsearch/005571" },
+  { name: "RabbitMQ", logo: "https://cdn.simpleicons.org/rabbitmq/FF6600" },
+  { name: "Kafka", logo: "https://cdn.simpleicons.org/apachekafka/231F20" },
+  { name: "Jenkins", logo: "https://cdn.simpleicons.org/jenkins/D24939" },
+  { name: "GitHub Actions", logo: "https://cdn.simpleicons.org/githubactions/2088FF" },
+  { name: "Terraform", logo: "https://cdn.simpleicons.org/terraform/7B42BC" },
+  { name: "Nginx", logo: "https://cdn.simpleicons.org/nginx/009639" },
+  { name: "Jest", logo: "https://cdn.simpleicons.org/jest/C21325" },
+  { name: "Cypress", logo: "https://cdn.simpleicons.org/cypress/17202C" },
+  { name: "Prisma", logo: "https://cdn.simpleicons.org/prisma/2D3748" },
+  { name: "Git", logo: "https://cdn.simpleicons.org/git/F05032" },
+  { name: "Vercel", logo: "https://cdn.simpleicons.org/vercel/000000" },
 ];
 
 export function TechSection() {
@@ -53,7 +73,7 @@ export function TechSection() {
           </p>
         </motion.div>
 
-        {/* Innovation Features - No Cards */}
+        {/* Innovation Features - Improved Visibility */}
         <div className="grid md:grid-cols-3 gap-12 mb-24">
           <motion.div
             className="relative text-center"
@@ -62,8 +82,8 @@ export function TechSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="relative h-48 mb-6 flex items-center justify-center">
-              <div className="absolute inset-0 opacity-20 scale-125">
+            <div className="relative h-56 mb-6 flex items-center justify-center">
+              <div className="absolute inset-0 opacity-50 scale-110">
                 <AIIllustration />
               </div>
             </div>
@@ -82,8 +102,8 @@ export function TechSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="relative h-48 mb-6 flex items-center justify-center">
-              <div className="absolute inset-0 opacity-20 scale-125">
+            <div className="relative h-56 mb-6 flex items-center justify-center">
+              <div className="absolute inset-0 opacity-50 scale-110">
                 <CodeIllustration />
               </div>
             </div>
@@ -102,8 +122,8 @@ export function TechSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <div className="relative h-48 mb-6 flex items-center justify-center">
-              <div className="absolute inset-0 opacity-20 scale-125">
+            <div className="relative h-56 mb-6 flex items-center justify-center">
+              <div className="absolute inset-0 opacity-50 scale-110">
                 <CloudIllustration />
               </div>
             </div>
@@ -153,26 +173,6 @@ export function TechSection() {
           </div>
         </div>
 
-        {/* Bottom Stats */}
-        <motion.div
-          className="mt-20 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-purple-100 dark:bg-purple-900/30 border border-purple-200 dark:border-purple-700">
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-            >
-              <Sparkles className="w-5 h-5 text-purple-600 dark:text-purple-400" />
-            </motion.div>
-            <span className="text-sm font-semibold text-purple-900 dark:text-purple-100">
-              Always exploring new technologies and frameworks
-            </span>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

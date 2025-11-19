@@ -57,19 +57,6 @@ export function HeroSection() {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-5xl mx-auto">
-          {/* Badge */}
-          <motion.div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-100 dark:bg-purple-900/30 border border-purple-200 dark:border-purple-700 mb-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <Sparkles className="w-4 h-4 text-purple-600 dark:text-purple-400" />
-            <span className="text-sm font-medium text-purple-900 dark:text-purple-100">
-              Welcome to the Future of Technology
-            </span>
-          </motion.div>
-
           {/* Main Heading */}
           <motion.h1
             className="text-6xl md:text-8xl font-black mb-8 leading-tight"
